@@ -1,6 +1,15 @@
 import javax.swing.JOptionPane;
 
 public class Usuario {
-    String nome = JOptionPane.showInputDialog("Escreva o nome do usuário:");
-    String cpf = JOptionPane.showInputDialog("Escreva o CPF do usuário:");
-}
+    private String nome;
+    private String cpf;
+
+    public Usuario (String nome) {
+        this.nome = nome;
+    }
+
+    public String getNome(){
+        return nome;
+    }
+
+} 
