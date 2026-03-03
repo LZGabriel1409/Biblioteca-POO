@@ -15,3 +15,5 @@
 3. git status
 4. git commit -m "[nome do projeto]"
 5. git push
+
+
