@@ -72,6 +72,10 @@ public class App {
 
             }
 
+            if(opcao != 1 && opcao != 2 && opcao != 3 && opcao != 4 && opcao != 5){
+                JOptionPane.showMessageDialog(null,"Opção inválida.");
+            }
+
         }
 
     }
