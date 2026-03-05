@@ -1,10 +1,14 @@
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 public class App {
     public static void main(String[] args) throws Exception {
         String menu = "Bem vindo a biblioteca\n" +
-                      "==============\n1 - Listar acervo\n==============\n" +
-                      "0 - Sair\n==============\n" +
+                      "==============\n"+
+                      "1 - Listar acervo\n"+
+                      "==============\n" +
+                      "0 - Sair\n"+
+                      "==============\n" +
                       "Escolha uma opção:";
         String opcao;
 

@@ -4,7 +4,7 @@ public class Usuario {
     private String cpf;
     private String numero;
 
-    public Usuario (String nome, String cpf, String numero) {
+    public Usuario (String nome, String cpf, String numero, String codigo) {
         this.cpf = cpf;
         this.nome = nome;
         this.numero = numero;
@@ -15,6 +15,12 @@ public class Usuario {
     }
     public String getCPF(){
         return cpf;
+    }
+    public String getNumero(){
+        return numero;
+    }
+    public String getCodigo(){
+        return codigo;
     }
 
 
