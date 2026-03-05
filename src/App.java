@@ -1,34 +1,78 @@
-import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 public class App {
-    public static void main(String[] args) throws Exception {
-        String menu = "Bem vindo a biblioteca\n" +
-                      "==============\n"+
-                      "1 - Listar acervo\n"+
-                      "==============\n" +
-                      "0 - Sair\n"+
-                      "==============\n" +
-                      "Escolha uma opção:";
-        String opcao;
 
-        do {
-            opcao = JOptionPane.showInputDialog(null, menu);
+    public static void main(String[] args){
 
-            if (opcao == null) {
-                break;
+        Biblioteca biblioteca = new Biblioteca();
+
+        int opcao = 0;
+
+        while(opcao != 5){
+
+            opcao = Integer.parseInt(JOptionPane.showInputDialog(
+                    "1 - Cadastrar Livro\n" +
+                    "2 - Cadastrar Usuario\n" +
+                    "3 - Listar Livros\n" +
+                    "4 - Emprestar Livro\n" +
+                    "5 - Sair"
+            ));
+
+            if(opcao == 1){
+
+                String titulo = JOptionPane.showInputDialog("Titulo do livro:");
+                String autor = JOptionPane.showInputDialog("Autor:");
+                String codigo = JOptionPane.showInputDialog("Codigo:");
+
+                Livro livro = new Livro(titulo, autor, codigo);
+                biblioteca.adicionarLivro(livro);
+
+                JOptionPane.showMessageDialog(null,"Livro cadastrado!");
+
             }
 
-            switch (opcao) {
-                case "1":
-                    JOptionPane.showMessageDialog(null, "Acervo");
-                    break;
-                case "0":
-                    JOptionPane.showMessageDialog(null, "Até a próxima!");
-                    break;
-                default:
-                    JOptionPane.showMessageDialog(null, "Opção inválida.");
+            if(opcao == 2){
+
+                String nome = JOptionPane.showInputDialog("Nome:");
+                String cpf = JOptionPane.showInputDialog("CPF:");
+                String numero = JOptionPane.showInputDialog("Telefone:");
+                String codigo = JOptionPane.showInputDialog("Codigo do usuario:");
+
+                Usuario usuario = new Usuario(nome, cpf, numero, codigo);
+                biblioteca.adicionarUsuario(usuario);
+
+                JOptionPane.showMessageDialog(null,"Usuario cadastrado!");
+
             }
-        } while (!opcao.equals("0"));
+
+            if(opcao == 3){
+
+                String lista = "";
+
+                for(Livro l : biblioteca.getLivros()){
+                    lista += l.toString() + "\n";
+                }
+
+                JOptionPane.showMessageDialog(null, lista);
+
+            }
+
+            if(opcao == 4){
+
+                String codigo = JOptionPane.showInputDialog("Codigo do livro:");
+
+                Livro livro = biblioteca.buscarLivro(codigo);
+
+                if(livro != null && !livro.isEmprestado()){
+                    livro.emprestar();
+                    JOptionPane.showMessageDialog(null,"Livro emprestado!");
+                }else{
+                    JOptionPane.showMessageDialog(null,"Livro não encontrado ou já emprestado");
+                }
+
+            }
+
+        }
+
     }
 }
