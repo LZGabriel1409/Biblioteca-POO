@@ -8,14 +8,16 @@ public class App {
 
         int opcao = 0;
 
-        while(opcao != 5){
+        while(opcao != 7){
 
             opcao = Integer.parseInt(JOptionPane.showInputDialog(
                     "1 - Cadastrar Livro\n" +
                     "2 - Cadastrar Usuario\n" +
                     "3 - Listar Livros\n" +
-                    "4 - Emprestar Livro\n" +
-                    "5 - Sair"
+                    "4 - Listar Usuarios\n" +
+                    "5 - Devolver Livro\n" +
+                    "6 - Emprestar Livro\n" +
+                    "7 - Sair"
             ));
 
             if(opcao == 1){
@@ -50,14 +52,35 @@ public class App {
                 String lista = "";
 
                 for(Livro l : biblioteca.getLivros()){
-                    lista += l.toString() + "\n";
+
+                    String status;
+
+                    if(l.isEmprestado()){
+                        status = "Emprestado";
+                    }else{
+                        status = "Disponível";
+                    }
+
+                    lista += l.toString() + " | Estado: " + status + "\n";
+                }
+
+                JOptionPane.showMessageDialog(null, lista);
+
+            }
+            
+            if(opcao == 4){
+
+                String lista = "";
+
+                for(Usuario u : biblioteca.getUsuarios()){
+                    lista += u.toString() + "\n";
                 }
 
                 JOptionPane.showMessageDialog(null, lista);
 
             }
 
-            if(opcao == 4){
+            if(opcao == 5){
 
                 String codigo = JOptionPane.showInputDialog("Codigo do livro:");
 
@@ -72,7 +95,21 @@ public class App {
 
             }
 
-            if(opcao != 1 && opcao != 2 && opcao != 3 && opcao != 4 && opcao != 5){
+            if(opcao == 6){
+                String codigo = JOptionPane.showInputDialog("Codigo do livro:");
+
+                Livro livro = biblioteca.buscarLivro(codigo);
+
+                if(livro != null && livro.isEmprestado()){
+                    livro.devolver();
+                    JOptionPane.showMessageDialog(null,"Livro devolvido!");
+                }else{
+                    JOptionPane.showMessageDialog(null,"Livro não encontrado ou não emprestado");
+                }
+            }
+
+
+            if(opcao < 1 || opcao > 7){
                 JOptionPane.showMessageDialog(null,"Opção inválida.");
             }
 
