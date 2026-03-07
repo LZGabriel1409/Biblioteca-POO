@@ -29,6 +29,6 @@ public class Usuario {
     }
 
     public String toString(){
-        return "Nome: " + nome + " | CPF: " + cpf;
+        return "Nome: " + nome + " | CPF: " + cpf + " | Telefone: " + numero;
     }
 }
