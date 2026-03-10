@@ -40,7 +40,7 @@ public class App {
                         "3 - Devolver Livro\n" +
                         "4 - Emprestar Livro\n" +
                         "5 - Lista de Usuarios\n" +
-                        "6 - Sair"
+                        "6 - Voltar ao cadastro"
                     ));
 
                         if(opcao == 1){
