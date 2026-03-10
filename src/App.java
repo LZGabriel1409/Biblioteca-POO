@@ -25,7 +25,7 @@ public class App {
                 String cpf = JOptionPane.showInputDialog("CPF:");
                 String numero = JOptionPane.showInputDialog("Telefone:");
                 Random codeuser = new Random();
-                String codigo = String.valueOf(codeuser.nextInt(100));
+                String codigo = String.valueOf(codeuser.nextInt(10000));
                 JOptionPane.showMessageDialog(null, "Codigo de usuario: " + codigo);
 
                 Usuario usuario = new Usuario(nome, cpf, numero, codigo);
@@ -48,8 +48,7 @@ public class App {
                             String titulo = JOptionPane.showInputDialog("Titulo do livro:");
                             String autor = JOptionPane.showInputDialog("Autor:");
                             Random codelivro = new Random();
-                            String codigoLivro = String.valueOf(codelivro.nextInt(100));
-                            //String codigoLivro = String.valueOf((int) (Math.random() * 100));
+                            String codigoLivro = String.valueOf(codelivro.nextInt(10000));
                             JOptionPane.showMessageDialog(null, "Codigo do Livro: " + codigoLivro);
                         
 

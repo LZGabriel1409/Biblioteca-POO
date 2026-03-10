@@ -29,6 +29,6 @@ public class Usuario {
     }
 
     public String toString(){
-        return "Codigo: " + codigo + "Nome: " + nome + " | CPF: " + cpf + " | Telefone: " + numero;
+        return "Codigo: " + codigo + " | Nome: " + nome + " | CPF: " + cpf + " | Telefone: " + numero;
     }
 }
