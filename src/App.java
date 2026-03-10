@@ -7,15 +7,15 @@ public class App {
 
         Biblioteca biblioteca = new Biblioteca();
 
-        int opcao = 0;
+        int opcao = 1;
 
-        while(opcao != 3){
+        while(opcao != 0){
             opcao = Integer.parseInt(JOptionPane.showInputDialog(
                 "1 - Cadastro\n" +
                 "2 - Login\n"+
-                "3 - Sair"
+                "0 - Sair"
             ));
-            if(opcao < 1 || opcao > 3){
+            if(opcao < 0 || opcao > 2){
                         JOptionPane.showMessageDialog(null,"Opção inválida.");
                     };
 
@@ -133,14 +133,14 @@ public class App {
                         encontrado = true;
                         JOptionPane.showMessageDialog(null,"Login bem sucedido!");
                         
-                        while(opcao != 6){
+                        while(opcao != 0){
                     opcao = Integer.parseInt(JOptionPane.showInputDialog(
                         "1 - Cadastrar Livro\n" +
                         "2 - Listar Livros\n" +
                         "3 - Devolver Livro\n" +
                         "4 - Emprestar Livro\n" +
                         "5 - Lista de Usuarios\n" +
-                        "6 - Sair"
+                        "0 - Sair"
                     ));
 
                         if(opcao == 1){
@@ -216,7 +216,7 @@ public class App {
 
                         }
 
-                    if(opcao < 1 || opcao > 6){
+                    if(opcao < 0 || opcao > 5){
                         JOptionPane.showMessageDialog(null,"Opção inválida.");
                     }
                 }
